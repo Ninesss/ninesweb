@@ -1,16 +1,13 @@
 import './App.css'
-import DecryptedText from './ReactBitsComponent/DecryptedText.jsx'
+import { Routes, Route } from 'react-router'
+import { HomePage } from './pages/HomePage'
 
 function App() {
-
   return (
-    <>
-      <DecryptedText
-        text="Hello! This is 楽園"
-        animateOn="view"
-        revealDirection="center"
-      />
-    </>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="test" element={<>test</>} />
+    </Routes>
   )
 }
 
