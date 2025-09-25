@@ -296,7 +296,7 @@ const MAX_CLICKS = 10;
 const PixelBlast = ({
   variant = 'square',
   pixelSize = 3,
-  color = '#B19EEF',
+  color = '#201533',
   className,
   style,
   antialias = true,
@@ -316,6 +316,8 @@ const PixelBlast = ({
   transparent = true,
   edgeFade = 0.5,
   noiseAmount = 0
+  ,
+  interactive = false
 }) => {
   const containerRef = useRef(null);
   const visibilityRef = useRef({ visible: true });
@@ -327,9 +329,12 @@ const PixelBlast = ({
     const container = containerRef.current;
     if (!container) return;
     speedRef.current = speed;
-    const needsReinitKeys = ['antialias', 'liquid', 'noiseAmount'];
-    const cfg = { antialias, liquid, noiseAmount };
+    const needsReinitKeys = ['antialias', 'liquid', 'noiseAmount', 'interactive'];
+    const cfg = { antialias, liquid, noiseAmount, interactive };
     let mustReinit = false;
+    // handlers used for attaching/removing listeners; hoisted so cleanup can access them
+    let savedOnPointerDown = null;
+    let savedOnPointerMove = null;
     if (!threeRef.current) mustReinit = true;
     else if (prevConfigRef.current) {
       for (const k of needsReinitKeys)
@@ -361,6 +366,8 @@ const PixelBlast = ({
       });
       renderer.domElement.style.width = '100%';
       renderer.domElement.style.height = '100%';
+      // pointer events controlled by `interactive` prop
+      renderer.domElement.style.pointerEvents = interactive ? 'auto' : 'none';
       renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
       container.appendChild(renderer.domElement);
       const uniforms = {
@@ -469,24 +476,31 @@ const PixelBlast = ({
           h: renderer.domElement.height
         };
       };
-      const onPointerDown = e => {
+      let onPointerDown = null;
+      let onPointerMove = null;
+      onPointerDown = e => {
         const { fx, fy } = mapToPixels(e);
         const ix = threeRef.current?.clickIx ?? 0;
         uniforms.uClickPos.value[ix].set(fx, fy);
         uniforms.uClickTimes.value[ix] = uniforms.uTime.value;
         if (threeRef.current) threeRef.current.clickIx = (ix + 1) % MAX_CLICKS;
       };
-      const onPointerMove = e => {
+      onPointerMove = e => {
         if (!touch) return;
         const { fx, fy, w, h } = mapToPixels(e);
         touch.addTouch({ x: fx / w, y: fy / h });
       };
-      renderer.domElement.addEventListener('pointerdown', onPointerDown, {
-        passive: true
-      });
-      renderer.domElement.addEventListener('pointermove', onPointerMove, {
-        passive: true
-      });
+      if (interactive) {
+        renderer.domElement.addEventListener('pointerdown', onPointerDown, {
+          passive: true
+        });
+        renderer.domElement.addEventListener('pointermove', onPointerMove, {
+          passive: true
+        });
+        // save references so cleanup (outside this block) can remove them
+        savedOnPointerDown = onPointerDown;
+        savedOnPointerMove = onPointerMove;
+      }
       let raf = 0;
       const animate = () => {
         if (autoPauseOffscreen && !visibilityRef.current.visible) {
@@ -559,6 +573,14 @@ const PixelBlast = ({
       t.quad?.geometry.dispose();
       t.material.dispose();
       t.composer?.dispose();
+      try {
+        if (interactive && t.renderer && t.renderer.domElement) {
+          if (savedOnPointerDown) t.renderer.domElement.removeEventListener('pointerdown', savedOnPointerDown);
+          if (savedOnPointerMove) t.renderer.domElement.removeEventListener('pointermove', savedOnPointerMove);
+        }
+      } catch {
+        /* ignore */
+      }
       t.renderer.dispose();
       if (t.renderer.domElement.parentElement === container) container.removeChild(t.renderer.domElement);
       threeRef.current = null;
@@ -583,7 +605,8 @@ const PixelBlast = ({
     autoPauseOffscreen,
     variant,
     color,
-    speed
+    speed,
+    interactive
   ]);
 
   return (

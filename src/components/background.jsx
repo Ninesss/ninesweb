@@ -1,15 +1,17 @@
 import PixelBlast from '../reactBitsComponents/PixelBlast';
+import LetterGlitch from '../reactBitsComponents/LetterGlitch';
 import EdgeFade from './EdgeFade';
 
-export function Background() {
+
+export function Background({ interactive = false }) {
   return (
     <div
-      style={{ position: 'fixed', inset: 0, width: '100vw', height: '100vh', zIndex: 0, overflow: 'hidden' }}
+      style={{ position: 'fixed', inset: 0, width: '100vw', height: '100vh', zIndex: 0, overflow: 'hidden', pointerEvents: interactive ? 'auto' : 'none' }}
     >
       <PixelBlast
         variant="square"
         pixelSize={4}
-        color="#19A7CE"
+        color="#203562"
         patternScale={3}
         patternDensity={1.5}
         pixelSizeJitter={1.5}
@@ -24,9 +26,10 @@ export function Background() {
         speed={0.5}
         edgeFade={0}
         transparent
+        interactive={interactive}
       />
       {/* Edge fade overlay sits above the PixelBlast and below UI */}
-      <EdgeFade color="#146C94" strength={0.05} />
+      <EdgeFade color="#201533" strength={0.05} />
     </div>
   )
 } 

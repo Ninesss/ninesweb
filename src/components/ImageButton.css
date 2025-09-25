@@ -1,0 +1,20 @@
+.image-button {
+  position: relative;
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.image-button--active {
+  /* 激活状态的特殊样式 */
+  filter: brightness(1.2);
+}
+
+.image-button--active.image-button--hover {
+  /* 激活状态下的hover效果 */
+  filter: brightness(1.3);
+}
+
+.image-button--active.image-button--click {
+  /* 激活状态下的点击效果 */
+  filter: brightness(0.9);
+}
