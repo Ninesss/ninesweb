@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
   width: 100vw;
   margin: 0;
   padding: 0;
@@ -13,13 +13,14 @@
   flex-direction: row;
   justify-content: center;
   align-items: stretch;
-  height: 85vh;
-  width: 85vw;
+  height: 80vh;
+  width: 80vw;
   position: relative;
   z-index: 10;
   flex-shrink: 1;
   min-width: 800px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .sidebar-stack {
@@ -30,7 +31,10 @@
 	position: relative;
 	z-index: 10;
   padding: 0;
+  margin: 0;
   gap: 5vh;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .screen-stack {
@@ -40,4 +44,16 @@
   justify-content: center;
 	position: relative;
 	z-index: 10;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  max-width: 100%;
+}
+
+@media (max-width: 576px) {
+  .content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5vh;
+  }
 }
