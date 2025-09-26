@@ -27,7 +27,6 @@ export function Sidebar({ setActiveScreen, activeScreen }) {
             activeImage={item.activeImage}
             onClick={() => setActiveScreen(item.id)}
             isActive={activeScreen === item.id}
-            activeScale={1.05}
           />
         ))}
       </div>

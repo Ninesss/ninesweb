@@ -1,0 +1,36 @@
+.chat-input-container {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-bottom: 3%;
+}
+
+.chat-input-box {
+  display: flex;
+  box-sizing: border-box;
+  justify-content: center;
+  width: 100%;
+  height: 7vh;
+  gap: 3vw;
+  align-items: center;
+}
+
+.input-wrapper {
+  flex: 4;
+  height: 100%;
+}
+
+.send-button {
+  flex: 1;
+  height: 100%;
+}
+
+.pixel-input-container {
+  border-radius: 4px;
+}

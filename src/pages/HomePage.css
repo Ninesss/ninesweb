@@ -19,6 +19,7 @@
   z-index: 10;
   flex-shrink: 1;
   min-width: 800px;
+  gap: 3vw;
 }
 
 .sidebar-stack {

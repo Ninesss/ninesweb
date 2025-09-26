@@ -1,6 +1,6 @@
 import screenWindowImage from '../../assets/screen_window.png';
 import PixelArt from '../PixelArt';
-import { ChatScreen } from './ChatScreen';
+import { ChatScreen } from './chat/ChatScreen';
 import { ProfileScreen } from './ProfileScreen';
 import { GameDevScreen } from './GameDevScreen';
 import { PaintScreen } from './PaintScreen';

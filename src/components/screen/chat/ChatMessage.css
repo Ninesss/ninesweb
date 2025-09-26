@@ -1,0 +1,18 @@
+.chat-message-user {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.chat-message-nines {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.chat-message-text {
+  word-wrap: break-word;
+  padding: 2% 2%;
+  max-width: 50%;
+}
+.chat-message-profile {
+  width: 3vw;
+}

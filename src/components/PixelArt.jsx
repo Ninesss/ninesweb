@@ -5,11 +5,15 @@ const PixelArt = ({
   src,
   className = '',
   containerStyle = {},
-  imageStyle: externalImageStyle = {}
+  imageStyle: externalImageStyle = {},
+  scale: externalScale,
+  onScaleChange
 }) => {
   const containerRef = useRef(null);
-  const [scale, setScale] = useState(1);
+  const [internalScale, setInternalScale] = useState(1);
   const [imageSize, setImageSize] = useState({ width: 0, height: 0 });
+
+  const currentScale = externalScale !== undefined ? externalScale : internalScale;
 
   useEffect(() => {
     const img = new Image();
@@ -17,10 +21,15 @@ const PixelArt = ({
       setImageSize({ width: img.width, height: img.height });
 
       const updateScale = () => {
-        if (containerRef.current) {
+        if (containerRef.current && externalScale === undefined) {
           const { width } = containerRef.current.getBoundingClientRect();
-          const newScale = Math.floor(width / img.width);
-          setScale(Math.max(1, newScale));
+          const newScale = width / img.width;
+          const finalScale = Math.max(0.1, newScale);
+          setInternalScale(finalScale);
+          // 调用回调函数
+          if (onScaleChange) {
+            onScaleChange(finalScale);
+          }
         }
       };
 
@@ -34,9 +43,8 @@ const PixelArt = ({
       return () => resizeObserver.disconnect();
     };
     img.src = src;
-  }, [src]);
+  }, [src, externalScale, onScaleChange]);
 
-  // 关键修改：容器样式添加 pointer-events: none
   const mergedContainerStyle = {
     width: '100%',
     height: '100%',
@@ -44,16 +52,19 @@ const PixelArt = ({
     alignItems: 'center',
     justifyContent: 'center',
     background: 'transparent',
-    pointerEvents: 'none', // 阻止容器拦截鼠标事件
+    pointerEvents: 'none',
+    overflow: 'hidden',
     ...containerStyle
   };
 
-  // 图片样式也添加 pointer-events: none
   const mergedImageStyle = {
-    width: `${imageSize.width * scale}px`,
-    height: `${imageSize.height * scale}px`,
+    width: `${imageSize.width * currentScale}px`,
+    height: `${imageSize.height * currentScale}px`,
     imageRendering: 'pixelated',
-    pointerEvents: 'none', // 阻止图片拦截鼠标事件
+    pointerEvents: 'none',
+    objectFit: 'contain',
+    maxWidth: '100%',
+    maxHeight: '100%',
     ...externalImageStyle
   };
 
