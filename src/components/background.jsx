@@ -11,10 +11,10 @@ export function Background({ interactive = false }) {
       <PixelBlast
         variant="square"
         pixelSize={4}
-        color="#203562"
+        color="#bdbdbd"
         patternScale={3}
         patternDensity={1.5}
-        pixelSizeJitter={1.5}
+        pixelSizeJitter={0.5}
         enableRipples
         rippleSpeed={0.5}
         rippleThickness={0.08}
@@ -29,7 +29,7 @@ export function Background({ interactive = false }) {
         interactive={interactive}
       />
       {/* Edge fade overlay sits above the PixelBlast and below UI */}
-      <EdgeFade color="#201533" strength={0.05} />
+      <EdgeFade color="#e7e7e7" strength={0.05} />
     </div>
   )
 } 

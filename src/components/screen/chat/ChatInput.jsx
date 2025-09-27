@@ -1,8 +1,10 @@
 import { useState } from "react";
 import ImageButton from '../../ImageButton';
 import PixelInput from "../../PixelInput";
-import sendButtonImage from "../../../assets/chat_button_send.png"
-import chatInputbox from "../../../assets/chat_inputbox.png"
+import PixelArt from "../../PixelArt";
+import sendButtonImage from "../../../assets/chat_send_button.png"
+import chatInputbox from "../../../assets/chat_input_box.png"
+import chatInputBackgroundImage from "../../../assets/chat_input_background.png"
 import "./ChatInput.css";
 
 export function ChatInput({ chatMessages, setChatMessages }) {
@@ -131,6 +133,7 @@ export function ChatInput({ chatMessages, setChatMessages }) {
             value={inputText}
             onChange={saveInputText}
             onSubmit={handleSubmit}
+            fontSize="2vw"
           />
         </div>
         <div className="send-button" >
@@ -141,6 +144,7 @@ export function ChatInput({ chatMessages, setChatMessages }) {
             onClick={sendMessage}
           />
         </div>
+        <PixelArt className="chat-input-background" src={chatInputBackgroundImage} />
       </div>
     </div>
   );

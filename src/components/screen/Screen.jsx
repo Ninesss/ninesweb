@@ -3,7 +3,7 @@ import PixelArt from '../PixelArt';
 import { ChatScreen } from './chat/ChatScreen';
 import { ProfileScreen } from './ProfileScreen';
 import { GameDevScreen } from './GameDevScreen';
-import { PaintScreen } from './PaintScreen';
+import { PaintingScreen } from './PaintingScreen';
 import { MusicScreen } from './MusicScreen';
 
 import './Screen.css';
@@ -13,7 +13,7 @@ export function Screen({ activeScreen }) {
     chat: ChatScreen,
     profile: ProfileScreen,
     gamedev: GameDevScreen,
-    paint: PaintScreen,
+    painting: PaintingScreen,
     music: MusicScreen
   };
   const CurrentScreen = screenComponents[activeScreen] || ChatScreen;

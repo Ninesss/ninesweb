@@ -13,13 +13,12 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 80vh;
-  width: 80vw;
+  height: 75%;
+  width: 90%;
   position: relative;
   z-index: 10;
   flex-shrink: 1;
   min-width: 800px;
-  gap: 3vw;
 }
 
 .sidebar-stack {
@@ -31,13 +30,10 @@
 	z-index: 10;
   padding: 0;
   margin: 0;
-  gap: 3vh;
-  min-width: 0;
-  max-width: 50%;
 }
 
 .screen-stack {
-  flex: 4;
+  flex: 3.73;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -45,8 +41,6 @@
 	z-index: 10;
   padding: 0;
   margin: 0;
-  min-width: 0;
-  max-width: 100%;
 }
 
 @media (max-width: 576px) {

@@ -14,7 +14,10 @@ const PixelInput = ({
   onSubmit,
   className = "",
   maxLength,
-  disabled = false
+  disabled = false,
+  fontSize = "2vw",
+  inputPaddingLeft = "2%",
+  inputPaddingRight = "2%",
 }) => {
   const [inputState, setInputState] = useState('normal');
   const inputRef = useRef(null);
@@ -61,54 +64,71 @@ const PixelInput = ({
         position: 'relative',
         width: '100%',
         height: '100%',
-        cursor: disabled ? 'not-allowed' : 'text'
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onClick={() => inputRef.current?.focus()}
     >
-      {/* 背景图片 */}
+      {/* 背景图片 - 覆盖整个容器 */}
       <PixelArt
         src={getCurrentImage()}
         containerStyle={{
-          width: '100%',
-          height: '100%',
           position: 'absolute',
           top: 0,
-          left: 0
+          left: 0,
+          width: '100%', // 覆盖整个容器宽度
+          height: '100%', // 覆盖整个容器高度
+          zIndex: 10
         }}
         imageStyle={{
-          objectFit: 'fill'
+          width: '100%', // 图片填充整个容器
+          height: '100%'
         }}
       />
 
-      {/* 输入框 */}
-      <input
-        ref={inputRef}
-        type="text"
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        onKeyDown={handleKeyDown}
-        maxLength={maxLength}
-        disabled={disabled}
+      {/* 输入框包装器 - 只有这个区域有内边距 */}
+      <div
         style={{
-          width: '100%',
-          height: '100%',
-          background: 'transparent',
-          border: 'none',
-          outline: 'none',
-          padding: '0 20px',
-          fontSize: '16px',
-          color: 'white',
-          fontFamily: 'inherit',
           position: 'relative',
-          zIndex: 1,
-          cursor: 'inherit'
+          zIndex: 20,
+          width: "100%", // 占据整个容器宽度
+          height: "100%", // 占据整个容器高度
+          paddingLeft: inputPaddingLeft,
+          paddingRight: inputPaddingRight,
+          display: 'flex',
+          alignItems: 'center',
+          cursor: disabled ? 'not-allowed' : 'text'
         }}
-      />
+        onClick={() => inputRef.current?.focus()}
+      >
+        {/* 输入框 */}
+        <input
+          ref={inputRef}
+          type="text"
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          onKeyDown={handleKeyDown}
+          maxLength={maxLength}
+          disabled={disabled}
+          style={{
+            width: '100%',
+            height: '100%',
+            background: 'transparent',
+            border: 'none',
+            outline: 'none',
+            color: 'white',
+            fontFamily: 'inherit',
+            cursor: 'inherit',
+            fontSize: fontSize,
+            textAlign: 'left'
+          }}
+        />
+      </div>
     </div>
   );
 };

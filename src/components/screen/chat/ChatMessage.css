@@ -12,6 +12,7 @@
   word-wrap: break-word;
   padding: 2% 2%;
   max-width: 50%;
+  font-size: 2vw;
 }
 .chat-message-profile {
   width: 3vw;
