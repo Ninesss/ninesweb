@@ -11,8 +11,16 @@ const ImageButton = ({
   className = '',
   isActive = false,
   hoverScale = 1.05,
-  clickScale = 0.95,
+  clickScale = 0.98,
   activeScale = 1.03,
+  // 新增动画属性
+  transitionDuration = '0.15s',
+  transitionTiming = 'ease-out',
+  // 尺寸控制属性
+  width = '100%',
+  height = '100%',
+  top = '0%',
+  left = '0%',
 }) => {
   const [buttonState, setButtonState] = useState('normal');
   const buttonRef = useRef(null);
@@ -25,9 +33,7 @@ const ImageButton = ({
   };
 
   const getButtonStyle = () => {
-    // 简化逻辑，移除所有过渡
     if (isActive) {
-      // 激活状态
       if (buttonState === 'click') {
         return { transform: `scale(${clickScale})` };
       }
@@ -36,7 +42,6 @@ const ImageButton = ({
       }
       return { transform: `scale(${activeScale})` };
     } else {
-      // 非激活状态
       if (buttonState === 'click') {
         return { transform: `scale(${clickScale})` };
       }
@@ -46,6 +51,11 @@ const ImageButton = ({
       return { transform: 'scale(1)' };
     }
   };
+
+  // 获取过渡样式
+  const getTransitionStyle = () => ({
+    transition: `transform ${transitionDuration} ${transitionTiming}`,
+  });
 
   const handleClick = (e) => {
     if (onClick) {
@@ -69,31 +79,73 @@ const ImageButton = ({
     setButtonState('hover');
   };
 
+  const buttonStyle = getButtonStyle();
+  const transitionStyle = getTransitionStyle();
+
   return (
-    <button
-      ref={buttonRef}
-      className={`image-button ${className}`}
+    <div
+      className={`image-button-wrapper ${className}`}
       style={{
         width: "100%",
         height: "100%",
-        background: 'none',
-        border: 'none',
-        cursor: 'pointer',
-        padding: 0,
-        transformOrigin: 'center',
-        ...getButtonStyle() // 直接应用变换，无过渡
+        position: 'relative',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
       }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onMouseDown={handleMouseDown}
-      onMouseUp={handleMouseUp}
-      onClick={handleClick}
-      data-button-id={id}
     >
-      <PixelArt
-        src={getCurrentImage()}
-      />
-    </button>
+      {/* 图片显示区域 - 占满整个空间，并且跟随按钮一起缩放 */}
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: 1,
+          ...buttonStyle, // 图片也应用相同的缩放效果
+          ...transitionStyle // 添加过渡动画
+        }}
+      >
+        <PixelArt
+          src={getCurrentImage()}
+          containerStyle={{
+            width: '100%',
+            height: '100%',
+          }}
+        />
+      </div>
+
+      {/* 可点击按钮区域 - 可以控制大小和位置 */}
+      <button
+        ref={buttonRef}
+        className="image-button-clickable"
+        style={{
+          position: 'absolute',
+          zIndex: 20,
+          background: 'transparent',
+          border: 'none',
+          cursor: 'pointer',
+          margin: 0,
+          transformOrigin: 'center',
+          // 控制按钮的实际大小和位置
+          width: typeof width === 'number' ? `${width}%` : width,
+          height: typeof height === 'number' ? `${height}%` : height,
+          top: typeof top === 'number' ? `${top}%` : top,
+          left: typeof left === 'number' ? `${left}%` : left,
+          ...buttonStyle, // 按钮也应用缩放效果
+          ...transitionStyle // 添加过渡动画
+        }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}
+        onClick={handleClick}
+        data-button-id={id}
+      >
+        {/* 透明按钮，没有内容 */}
+      </button>
+    </div>
   );
 };
 

@@ -1,5 +1,4 @@
-// PixelInput.js
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import PixelArt from './PixelArt';
 
 const PixelInput = ({
@@ -16,8 +15,12 @@ const PixelInput = ({
   maxLength,
   disabled = false,
   fontSize = "2vw",
-  inputPaddingLeft = "2%",
-  inputPaddingRight = "2%",
+  fontColor = "black",
+  // 新增尺寸控制属性
+  width = '100%',
+  height = '100%',
+  top = '0%',
+  left = '0%',
 }) => {
   const [inputState, setInputState] = useState('normal');
   const inputRef = useRef(null);
@@ -38,18 +41,6 @@ const PixelInput = ({
     if (onBlur) onBlur(e);
   };
 
-  const handleMouseEnter = () => {
-    if (inputState !== 'focus') {
-      setInputState('hover');
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (inputState !== 'focus') {
-      setInputState('normal');
-    }
-  };
-
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && onSubmit) {
       e.preventDefault();
@@ -68,8 +59,6 @@ const PixelInput = ({
         justifyContent: 'center',
         alignItems: 'center'
       }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
     >
       {/* 背景图片 - 覆盖整个容器 */}
       <PixelArt
@@ -78,32 +67,41 @@ const PixelInput = ({
           position: 'absolute',
           top: 0,
           left: 0,
-          width: '100%', // 覆盖整个容器宽度
-          height: '100%', // 覆盖整个容器高度
+          width: '100%',
+          height: '100%',
           zIndex: 10
         }}
         imageStyle={{
-          width: '100%', // 图片填充整个容器
+          width: '100%',
           height: '100%'
         }}
       />
 
-      {/* 输入框包装器 - 只有这个区域有内边距 */}
+      {/* 输入框包装器 - 限制大小和位置，重置所有默认样式 */}
       <div
         style={{
-          position: 'relative',
+          position: 'absolute',
           zIndex: 20,
-          width: "100%", // 占据整个容器宽度
-          height: "100%", // 占据整个容器高度
-          paddingLeft: inputPaddingLeft,
-          paddingRight: inputPaddingRight,
+          // 控制输入框的实际大小和位置
+          width: typeof width === 'number' ? `${width}%` : width,
+          height: typeof height === 'number' ? `${height}%` : height,
+          top: typeof top === 'number' ? `${top}%` : top,
+          left: typeof left === 'number' ? `${left}%` : left,
+          // 重置所有可能的默认样式
+          margin: 0,
+          padding: 0,
+          boxSizing: 'border-box',
           display: 'flex',
           alignItems: 'center',
-          cursor: disabled ? 'not-allowed' : 'text'
+          cursor: disabled ? 'not-allowed' : 'text',
+          // 确保没有边框和背景
+          border: 'none',
+          background: 'none',
+          outline: 'none'
         }}
         onClick={() => inputRef.current?.focus()}
       >
-        {/* 输入框 */}
+        {/* 输入框 - 也重置所有默认样式 */}
         <input
           ref={inputRef}
           type="text"
@@ -121,11 +119,18 @@ const PixelInput = ({
             background: 'transparent',
             border: 'none',
             outline: 'none',
-            color: 'white',
+            color: fontColor,
             fontFamily: 'inherit',
             cursor: 'inherit',
             fontSize: fontSize,
-            textAlign: 'left'
+            textAlign: 'left',
+            // 重置所有可能的默认样式
+            margin: 0,
+            padding: 0,
+            boxSizing: 'border-box',
+            // 确保没有额外的间距
+            lineHeight: '1',
+            verticalAlign: 'middle'
           }}
         />
       </div>

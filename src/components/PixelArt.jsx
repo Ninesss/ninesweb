@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './PixelArt.css';
 
 const PixelArt = ({
   src,

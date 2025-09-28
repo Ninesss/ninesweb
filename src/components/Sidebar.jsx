@@ -30,6 +30,10 @@ export function Sidebar({ setActiveScreen, activeScreen }) {
             activeImage={item.activeImage}
             onClick={() => setActiveScreen(item.id)}
             isActive={activeScreen === item.id}
+            width={90}
+            height={80}
+            top={10}  // (100 - 80) / 2 = 10
+            left={5} // (100 - 90) / 2 = 5
           />
         ))}
       </div>
