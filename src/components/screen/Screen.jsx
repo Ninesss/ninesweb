@@ -10,8 +10,8 @@ import './Screen.css';
 
 export function Screen({ activeScreen }) {
   const screenComponents = {
-    chat: ChatScreen,
     profile: ProfileScreen,
+    chat: ChatScreen,
     gamedev: GameDevScreen,
     painting: PaintingScreen,
     music: MusicScreen

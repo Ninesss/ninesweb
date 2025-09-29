@@ -3,6 +3,7 @@ import ImageButton from '../../ImageButton';
 import PixelInput from "../../PixelInput";
 import PixelArt from "../../PixelArt";
 import sendButtonImage from "../../../assets/chat_send_button.png"
+import sendButtonClickImage from "../../../assets/chat_send_button_click.png"
 import chatInputbox from "../../../assets/chat_input_box.png"
 import chatInputBackgroundImage from "../../../assets/chat_input_background.png"
 import { useLanguage } from '../../../components/LanguageContext';
@@ -202,7 +203,7 @@ export function ChatInput({ chatMessages, setChatMessages }) {
               value={inputText}
               onChange={saveInputText}
               onSubmit={handleSubmit}
-              fontSize="2vw"
+              fontSize="1.5vw"
               fontColor="#474747"
               width={96}
               height={50}
@@ -216,12 +217,15 @@ export function ChatInput({ chatMessages, setChatMessages }) {
             <ImageButton
               normalImage={sendButtonImage}
               hoverImage={sendButtonImage}
-              clickImage={sendButtonImage}
+              clickImage={sendButtonClickImage}
+              hoverScale={1}
+              clickScale={1}
+              activeScale={1}
               onClick={sendMessage}
-              width={100}
+              width={94}
               height={46}
               top={28}  // (100 - 46) / 2 = 28
-              left={0} // (100 - 100) / 2 = 0
+              left={4} // (100 - 100) / 2 = 0
             />
           </div>
         </div>

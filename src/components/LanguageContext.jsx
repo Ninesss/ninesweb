@@ -8,8 +8,15 @@ export function LanguageProvider({ children }) {
 
   useEffect(() => {
     const browserLanguage = navigator.language || navigator.userLanguage || "en";
-    const isChinese = browserLanguage.startsWith("zh");
-    setUserLanguage(isChinese ? "zh" : "en");
+
+    // 检测浏览器语言并设置对应的语言代码
+    if (browserLanguage.startsWith("zh")) {
+      setUserLanguage("zh");
+    } else if (browserLanguage.startsWith("ja")) {
+      setUserLanguage("ja");
+    } else {
+      setUserLanguage("en");
+    }
   }, []);
 
   return (

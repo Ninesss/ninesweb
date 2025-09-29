@@ -53,6 +53,10 @@ const PixelArt = ({
     background: 'transparent',
     pointerEvents: 'none',
     overflow: 'hidden',
+    userSelect: 'none', // 添加这个属性
+    WebkitUserSelect: 'none', // 针对Webkit浏览器
+    MozUserSelect: 'none', // 针对Firefox
+    msUserSelect: 'none', // 针对IE/Edge
     ...containerStyle
   };
 
@@ -64,6 +68,10 @@ const PixelArt = ({
     objectFit: 'contain',
     maxWidth: '100%',
     maxHeight: '100%',
+    userSelect: 'none', // 添加这个属性
+    WebkitUserSelect: 'none', // 针对Webkit浏览器
+    MozUserSelect: 'none', // 针对Firefox
+    msUserSelect: 'none', // 针对IE/Edge
     ...externalImageStyle
   };
 

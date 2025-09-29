@@ -1,24 +1,48 @@
-.content-container {
+.page-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
   margin: 0;
   padding: 0;
+  min-height: 0;
+  max-height: 100%;
+  overflow: hidden;
 }
 
-.content{
+.headbar-container {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  min-height: 0;
+  max-height: 100%;
+}
+
+.content-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 2;
+  height: 100%;
+  width: 85%;
+  position: relative;
+  z-index: 10;
+  min-width: 1000px;
+  min-height: 0;
+  max-height: 100%;
+}
+
+.stack-container{
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 75%;
-  width: 90%;
-  position: relative;
-  z-index: 10;
-  flex-shrink: 1;
-  min-width: 800px;
+  flex: 2;
+  height: 100%;
+  width: 100%;
 }
 
 .sidebar-stack {
@@ -30,7 +54,8 @@
 	z-index: 10;
   padding: 0;
   margin: 0;
-  min-width: 200px;
+  min-width: 100px;
+  height: 100%;
 }
 
 .screen-stack {
@@ -42,13 +67,18 @@
 	z-index: 10;
   padding: 0;
   margin: 0;
-  min-width: 600px;
+  min-width: 800px;
+  height: 100%;
 }
 
-@media (max-width: 576px) {
-  .content {
-    display: grid;
-    grid-template-columns: 1fr;
-    place-items: center;
-  }
+.footer-container {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  min-height: 0;
+  max-height: 100%;
+  text-align: center;
+  font-size: 1.2vw;
+  color: #666;
+  line-height: 1;
 }

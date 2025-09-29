@@ -10,8 +10,8 @@ import './Sidebar.css';
 
 export function Sidebar({ setActiveScreen, activeScreen }) {
   const menuItems = [
-    { id: 'chat', label: 'chat', image: chatButtonImage, hover: chatButtonImage, click: chatButtonImage, activeImage: chatButtonImage },
     { id: 'profile', label: 'profile', image: profileButtonImage, hover: profileButtonImage, click: profileButtonImage, activeImage: profileButtonImage },
+    { id: 'chat', label: 'chat', image: chatButtonImage, hover: chatButtonImage, click: chatButtonImage, activeImage: chatButtonImage },
     { id: 'gamedev', label: 'gamedev', image: gamedevButtonImage, hover: gamedevButtonImage, click: gamedevButtonImage, activeImage: gamedevButtonImage },
     { id: 'painting', label: 'painting', image: paintingButtonImage, hover: paintingButtonImage, click: paintingButtonImage, activeImage: paintingButtonImage },
     { id: 'music', label: 'music', image: musicButtonImage, hover: musicButtonImage, click: musicButtonImage, activeImage: musicButtonImage }
@@ -22,19 +22,21 @@ export function Sidebar({ setActiveScreen, activeScreen }) {
       <PixelArt className="sidebar-window" src={sidebarWindowImage} />
       <div className="sidebar-list">
         {menuItems.map(item => (
-          <ImageButton
-            key={item.id}
-            normalImage={item.image}
-            hoverImage={item.hover}
-            clickImage={item.click}
-            activeImage={item.activeImage}
-            onClick={() => setActiveScreen(item.id)}
-            isActive={activeScreen === item.id}
-            width={90}
-            height={80}
-            top={10}  // (100 - 80) / 2 = 10
-            left={5} // (100 - 90) / 2 = 5
-          />
+          <div className="sidebar-list-button">
+            <ImageButton
+              key={item.id}
+              normalImage={item.image}
+              hoverImage={item.hover}
+              clickImage={item.click}
+              activeImage={item.activeImage}
+              onClick={() => setActiveScreen(item.id)}
+              isActive={activeScreen === item.id}
+              width={92}
+              height={80}
+              top={10}  // (100 - 80) / 2 = 10
+              left={4} // (100 - 90) / 2 = 5
+            />
+          </div>
         ))}
       </div>
     </div>
