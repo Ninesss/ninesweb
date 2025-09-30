@@ -1,0 +1,124 @@
+{
+  "paintings": [
+    {
+      "img": "/painting/test1.jpg",
+      "title": {
+        "zh": "练习1",
+        "en": "Practice 1", 
+        "ja": "練習1"
+      },
+      "time": "2024-05-05",
+      "description": {
+        "zh": "练习1",
+        "en": "Practice drawing 1",
+        "ja": "練習1"
+      },
+      "height": 800
+    },
+    {
+      "img": "/painting/test2.jpg", 
+      "title": {
+        "zh": "练习2",
+        "en": "Practice 2",
+        "ja": "練習2"
+      },
+      "time": "2024-10-06",
+      "description": {
+        "zh": "练习2", 
+        "en": "Practice drawing 2",
+        "ja": "練習2"
+      },
+      "height": 700
+    },
+    {
+      "img": "/painting/海蛞蝓娘.jpg",
+      "title": {
+        "zh": "海蛞蝓娘",
+        "en": "Sea Slug Girl",
+        "ja": "ウミウシ娘"
+      },
+      "time": "2025-02-19", 
+      "description": {
+        "zh": "可爱的海蛞蝓",
+        "en": "Cute sea slug",
+        "ja": "可愛いウミウシ"
+      },
+      "height": 700
+    },
+    {
+      "img": "/painting/test3.jpg",
+      "title": {
+        "zh": "练习3",
+        "en": "Practice 3",
+        "ja": "練習3"
+      },
+      "time": "2025-03-05",
+      "description": {
+        "zh": "练习3",
+        "en": "Practice drawing 3", 
+        "ja": "練習3"
+      },
+      "height": 700
+    },
+    {
+      "img": "/painting/fei.png",
+      "title": {
+        "zh": "fei",
+        "en": "Fei",
+        "ja": "フェイ"
+      },
+      "time": "2024-01-12",
+      "description": {
+        "zh": "",
+        "en": "",
+        "ja": ""
+      },
+      "height": 500
+    },
+    {
+      "img": "/painting/凯尔西.png",
+      "title": {
+        "zh": "凯尔西",
+        "en": "Kelsey",
+        "ja": "ケルシー"
+      },
+      "time": "2024-01-12",
+      "description": {
+        "zh": "老猫",
+        "en": "Old cat",
+        "ja": "老猫"
+      },
+      "height": 500
+    },
+    {
+      "img": "/painting/卡提西娅.jpg",
+      "title": {
+        "zh": "卡提西娅",
+        "en": "Catithia",
+        "ja": "カティシア"
+      },
+      "time": "2025-06-20",
+      "description": {
+        "zh": "尝试色块起稿失败",
+        "en": "Failed attempt at color block sketching",
+        "ja": "色ブロックでの下書き失敗"
+      },
+      "height": 700
+    },
+    {
+      "img": "/painting/月Moon.png",
+      "title": {
+        "zh": "月Moon",
+        "en": "Moon",
+        "ja": "月"
+      },
+      "time": "2025-06-10",
+      "description": {
+        "zh": "绿发机娘，完成度很高的作品",
+        "en": "Green-haired mecha girl, highly detailed work",
+        "ja": "緑髪の機械娘、完成度の高い作品"
+      },
+      "height": 900
+    }
+  ]
+}

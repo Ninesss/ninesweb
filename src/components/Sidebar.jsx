@@ -22,9 +22,8 @@ export function Sidebar({ setActiveScreen, activeScreen }) {
       <PixelArt className="sidebar-window" src={sidebarWindowImage} />
       <div className="sidebar-list">
         {menuItems.map(item => (
-          <div className="sidebar-list-button">
+          <div className="sidebar-list-button" key={item.id}>
             <ImageButton
-              key={item.id}
               normalImage={item.image}
               hoverImage={item.hover}
               clickImage={item.click}

@@ -1,0 +1,31 @@
+{
+  "pages": {
+    "zh": [
+      {
+        "id": "0",
+        "gamename": "文字游戏",
+        "title": "一个基于文本的冒险游戏",
+        "createTime": "2025-09-30",
+        "content": "在这个游戏中，你将通过选择不同的文本来决定故事的走向。每个选择都会影响剧情发展，带来不同的结局。"
+      }
+    ],
+    "en": [
+      {
+        "id": "0",
+        "gamename": "Text Adventure",
+        "title": "A text-based adventure game",
+        "createTime": "2025-09-30",
+        "content": "In this game, you will determine the course of the story by choosing different texts. Each choice affects the plot development and leads to different endings."
+      }
+    ],
+    "ja": [
+      {
+        "id": "0", 
+        "gamename": "テキストゲーム",
+        "title": "テキストベースのアドベンチャーゲーム",
+        "createTime": "2025-09-30",
+        "content": "このゲームでは、異なるテキストを選択することで物語の行方を決定します。それぞれの選択がプロットの発展に影響し、異なる結末をもたらします。"
+      }
+    ]
+  }
+}

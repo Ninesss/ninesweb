@@ -13,14 +13,17 @@ const ImageButton = ({
   hoverScale = 1.05,
   clickScale = 0.98,
   activeScale = 1.03,
-  // 新增动画属性
   transitionDuration = '0.15s',
   transitionTiming = 'ease-out',
-  // 尺寸控制属性
   width = '100%',
   height = '100%',
   top = '0%',
   left = '0%',
+  onMouseEnter,
+  onMouseLeave,
+  onMouseDown,
+  onMouseUp,
+  zIndex = 20,
 }) => {
   const [buttonState, setButtonState] = useState('normal');
   const buttonRef = useRef(null);
@@ -63,20 +66,24 @@ const ImageButton = ({
     }
   };
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = (e) => {
     setButtonState('hover');
+    if (onMouseEnter) onMouseEnter(e); // 调用外部传入的 handler
   };
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = (e) => {
     setButtonState('normal');
+    if (onMouseLeave) onMouseLeave(e); // 调用外部传入的 handler
   };
 
-  const handleMouseDown = () => {
+  const handleMouseDown = (e) => {
     setButtonState('click');
+    if (onMouseDown) onMouseDown(e); // 调用外部传入的 handler
   };
 
-  const handleMouseUp = () => {
+  const handleMouseUp = (e) => {
     setButtonState('hover');
+    if (onMouseUp) onMouseUp(e); // 调用外部传入的 handler
   };
 
   const buttonStyle = getButtonStyle();
@@ -102,7 +109,7 @@ const ImageButton = ({
           left: 0,
           width: '100%',
           height: '100%',
-          zIndex: 1,
+          zIndex: zIndex,
           ...buttonStyle, // 图片也应用相同的缩放效果
           ...transitionStyle // 添加过渡动画
         }}
@@ -122,7 +129,7 @@ const ImageButton = ({
         className="image-button-clickable"
         style={{
           position: 'absolute',
-          zIndex: 20,
+          zIndex: 100,
           background: 'transparent',
           border: 'none',
           cursor: 'pointer',

@@ -68,8 +68,8 @@ const Masonry = ({
 
   const [containerRef, { width }] = useMeasure();
   const [imagesReady, setImagesReady] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null); // 选中的图片
-  const [isModalOpen, setIsModalOpen] = useState(false); // 模态窗口状态
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const getInitialPosition = (item) => {
     const containerRect = containerRef.current?.getBoundingClientRect();
@@ -105,32 +105,40 @@ const Masonry = ({
     preloadImages(items.map(i => i.img)).then(() => setImagesReady(true));
   }, [items]);
 
+  // 使用 useMemo 缓存处理后的数据，确保语言切换时重新计算
+  const processedItems = useMemo(() => {
+    return items.map(item => ({
+      ...item,
+      // 确保每次语言切换时都重新处理文本
+      title: typeof item.title === 'object' ? item.title : String(item.title),
+      description: typeof item.description === 'object' ? item.description : String(item.description)
+    }));
+  }, [items]); // 当 items 变化时重新处理
+
   const grid = useMemo(() => {
     if (!width) return [];
 
     const colHeights = new Array(columns).fill(0);
-    const columnWidth = (width - (columns - 1) * gap) / columns; // 减去间隔后的列宽
+    const columnWidth = (width - (columns - 1) * gap) / columns;
 
-    return items.map(child => {
+    return processedItems.map(child => {
       const col = colHeights.indexOf(Math.min(...colHeights));
-      const x = columnWidth * col + gap * col; // 添加水平间隔
+      const x = columnWidth * col + gap * col;
       const height = child.height / 2;
-      const y = colHeights[col] + (colHeights[col] > 0 ? gap : 0); // 添加垂直间隔
+      const y = colHeights[col] + (colHeights[col] > 0 ? gap : 0);
 
-      colHeights[col] = y + height; // 更新列高度
+      colHeights[col] = y + height;
 
       return { ...child, x, y, w: columnWidth, h: height };
     });
-  }, [columns, items, width, gap]); // 添加gap依赖
+  }, [columns, processedItems, width, gap]);
 
-  // 计算容器总高度（用于滚动）
   const containerHeight = useMemo(() => {
     if (grid.length === 0) return 'auto';
 
-    // 找出每列的最大高度
     const columnHeights = new Array(columns).fill(0);
     grid.forEach(item => {
-      const col = Math.floor(item.x / (item.w + gap)); // 计算所属列
+      const col = Math.floor(item.x / (item.w + gap));
       columnHeights[col] = Math.max(columnHeights[col], item.y + item.h);
     });
 
@@ -153,7 +161,7 @@ const Masonry = ({
       };
 
       if (!hasMounted.current) {
-        const initialPos = getInitialPosition(item, index);
+        const initialPos = getInitialPosition(item);
         const initialState = {
           opacity: 0,
           x: initialPos.x,
@@ -182,11 +190,9 @@ const Masonry = ({
     });
 
     hasMounted.current = true;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [grid, imagesReady, stagger, animateFrom, blurToFocus, duration, ease]);
 
   const handleMouseEnter = (e, item) => {
-    const element = e.currentTarget;
     const selector = `[data-key="${item.id}"]`;
 
     if (scaleOnHover) {
@@ -198,7 +204,7 @@ const Masonry = ({
     }
 
     if (colorShiftOnHover) {
-      const overlay = element.querySelector('.color-overlay');
+      const overlay = e.currentTarget.querySelector('.color-overlay');
       if (overlay) {
         gsap.to(overlay, {
           opacity: 0.3,
@@ -209,7 +215,6 @@ const Masonry = ({
   };
 
   const handleMouseLeave = (e, item) => {
-    const element = e.currentTarget;
     const selector = `[data-key="${item.id}"]`;
 
     if (scaleOnHover) {
@@ -221,7 +226,7 @@ const Masonry = ({
     }
 
     if (colorShiftOnHover) {
-      const overlay = element.querySelector('.color-overlay');
+      const overlay = e.currentTarget.querySelector('.color-overlay');
       if (overlay) {
         gsap.to(overlay, {
           opacity: 0,
@@ -236,7 +241,6 @@ const Masonry = ({
     setIsModalOpen(true);
   };
 
-  // 关闭模态窗口
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setSelectedImage(null);
@@ -255,7 +259,7 @@ const Masonry = ({
               key={item.id}
               data-key={item.id}
               className="item-wrapper"
-              onClick={() => handleImageClick(item)} // 修改点击事件
+              onClick={() => handleImageClick(item)}
               onMouseEnter={e => handleMouseEnter(e, item)}
               onMouseLeave={e => handleMouseLeave(e, item)}
             >
@@ -282,11 +286,12 @@ const Masonry = ({
         })}
       </div>
 
-      {/* 模态窗口 */}
       <ImageModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         image={selectedImage}
+        // 传递当前的语言数据，确保modal使用最新的数据
+        currentItems={processedItems}
       />
     </>
   );

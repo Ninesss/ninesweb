@@ -6,10 +6,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   min-height: 0;
   max-height: 100%;
 }
@@ -76,6 +72,10 @@
   padding-right: 7.2%;
   padding-top: 45.5%;
   padding-bottom: 9%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .profile-text1-3 {
@@ -88,10 +88,10 @@
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  padding-left: 8%;
-  padding-right: 45%;
-  padding-top: 65%;
-  padding-bottom: 20%;
+  padding-left: 0%;
+  padding-right: 35%;
+  padding-top: 55%;
+  padding-bottom: 10%;
   display: block;
   position: relative;
   overflow: hidden;
@@ -160,7 +160,11 @@
   padding-top: 7%;
   padding-bottom: 7.3%;
   line-height: 0;
-  /* 移除了固定的 font-size 和 letter-spacing */
+  font-weight: bold;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .profile-text3-1-1-box {
@@ -197,7 +201,11 @@
   padding-top: 3%;
   padding-bottom: 7.3%;
   line-height: 0;
-  /* 移除了固定的 font-size 和 letter-spacing */
+  font-weight: bold;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .profile-text3-1-2-box {
@@ -245,7 +253,11 @@
   padding-top: 7%;
   padding-bottom: 7.3%;
   line-height: 0;
-  /* 移除了固定的 font-size 和 letter-spacing */
+  font-weight: bold;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .profile-text3-2-1-box {
@@ -256,10 +268,6 @@
   padding-right: 16.3%;
   padding-top: 10.5%;
   padding-bottom: 7.3%;
-  -webkit-user-select: text;
-  -moz-user-select: text;
-  -ms-user-select: text;
-  user-select: text;
 }
 
 .profile-text3-2-1-box-text {
@@ -294,37 +302,4 @@
   width: 100%;
   height: 100%;
   z-index: 5;
-}
-
-.language-switcher {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  width: 100%;
-  height: 100%;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
-.language-button {
-  padding: 4px 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.8);
-  cursor: pointer;
-  font-size: 0.8vw;
-  transition: all 0.3s ease;
-  min-width: 60px;
-}
-
-.language-button:hover {
-  background: rgba(240, 240, 240, 0.9);
-  transform: translateY(-1px);
-}
-
-.language-button.active {
-  background: rgba(0, 123, 255, 0.9);
-  color: white;
-  border-color: #007bff;
-  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
 }

@@ -10,9 +10,9 @@ export function Headbar() {
   const { userLanguage, setUserLanguage } = useLanguage();
 
   const languages = [
-    { code: 'en', image: languageButtonENImage, alt: 'English' },
-    { code: 'zh', image: languageButtonZHImage, alt: '中文' },
-    { code: 'ja', image: languageButtonJAImage, alt: '日本語' }
+    { id: 'en', code: 'en', image: languageButtonENImage, alt: 'English' },
+    { id: 'zh', code: 'zh', image: languageButtonZHImage, alt: '中文' },
+    { id: 'ja', code: 'ja', image: languageButtonJAImage, alt: '日本語' }
   ];
 
   return (
@@ -25,6 +25,8 @@ export function Headbar() {
             normalImage={item.image}
             activeImage={item.activeImage}
             onClick={() => setUserLanguage(item.code)}
+            align="end"
+            justify='end'
             width={70}
             height={60}
             top={20}

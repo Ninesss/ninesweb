@@ -1,10 +1,10 @@
 import screenWindowImage from '../../assets/screen_window.png';
 import PixelArt from '../PixelArt';
 import { ChatScreen } from './chat/ChatScreen';
-import { ProfileScreen } from './ProfileScreen';
-import { GameDevScreen } from './GameDevScreen';
-import { PaintingScreen } from './PaintingScreen';
-import { MusicScreen } from './MusicScreen';
+import { ProfileScreen } from './profile/ProfileScreen';
+import { GameDevScreen } from './gamedev/GameDevScreen';
+import { PaintingScreen } from './painting/PaintingScreen';
+import { MusicScreen } from './music/MusicScreen';
 
 import './Screen.css';
 
