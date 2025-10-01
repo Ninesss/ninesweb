@@ -50,8 +50,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-	position: relative;
-	z-index: 10;
+  position: relative;
+  z-index: 10;
   padding: 0;
   margin: 0;
   min-width: 100px;
@@ -63,8 +63,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-	position: relative;
-	z-index: 10;
+  position: relative;
+  z-index: 10;
   padding: 0;
   margin: 0;
   min-width: 800px;
@@ -81,4 +81,92 @@
   font-size: 1.2vw;
   color: #666;
   line-height: 1;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .content-container {
+    width: 95%;
+    min-width: 320px;
+    padding: 10px;
+    overflow: scroll;
+  }
+
+  .stack-container.mobile {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    flex: 1;
+  }
+
+  .mobile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+  }
+
+  .mobile-sidebar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .mobile-screen {
+    width: 100%;
+    flex: 1;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-stack,
+  .screen-stack {
+    display: none; /* 隐藏桌面布局 */
+  }
+
+  .footer-container {
+    font-size: 12px;
+    padding: 10px 0;
+  }
+}
+
+/* 小屏幕手机适配 */
+@media (max-width: 480px) {
+  .content-container {
+    width: 100%;
+    padding: 5px;
+    overflow: scroll;
+  }
+
+  .mobile-header {
+    padding: 5px 0;
+  }
+
+  .mobile-screen {
+    min-height: 300px;
+  }
+
+  .footer-container {
+    font-size: 10px;
+  }
+}
+
+/* 平板适配 */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .content-container {
+    width: 90%;
+    min-width: 768px;
+  }
+
+  .sidebar-stack {
+    min-width: 80px;
+  }
+
+  .screen-stack {
+    min-width: 600px;
+  }
 }

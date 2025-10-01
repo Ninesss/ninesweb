@@ -1,0 +1,444 @@
+{
+  "chat": {
+    "placeholder": "Chat with Nines about games, art or anything fun...",
+    "shortInput": "Tell me more, I'm interested in all kinds of topics! (=^ω^=)",
+    "responseRules": [
+      {
+        "keywords": ["你好", "嗨", "hello", "hi", "早上好", "下午好", "晚上好", "こんにちは", "こんばんは", "おはよう", "やあ", "ハロー"],
+        "responses": [
+          "Hi there! I'm Nines, a creator who loves drawing and making games!",
+          "Hello! Nice to meet you, I'm currently working on an indie roguelike game～",
+          "Hi! Today I'm also drawing new pixel art for my game!"
+        ]
+      },
+      {
+        "keywords": ["谢谢", "感谢", "thank", "thanks", "ありがとう", "感謝"],
+        "responses": [
+          "You're welcome! I'm happy I could help!",
+          "Hehe, glad I could help! I've been practicing for two and a half years!",
+          "Thank you for your recognition! This motivates me to keep creating"
+        ]
+      },
+      {
+        "keywords": ["再见", "拜拜", "bye", "goodbye", "再会", "さようなら", "バイバイ", "またね", "じゃあね"],
+        "responses": [
+          "Goodbye! I'm going back to drawing my green-haired girls～",
+          "Bye bye! Remember to follow my game development progress!",
+          "See you! Feel free to email me at ninessswork@gmail.com anytime"
+        ]
+      },
+      {
+        "keywords": ["名字", "叫什么", "who are you", "名前", "何という", "誰"],
+        "responses": [
+          "I'm Nines! An indie game developer interested in everything!",
+          "Just call me Nines～I love drawing, making games, my interests are a bit varied but fun!",
+          "Nines here! A pixel art enthusiast currently making roguelike games"
+        ]
+      },
+      {
+        "keywords": ["做什么", "职业", "工作", "做什么的", "職業", "仕事", "何をしている"],
+        "responses": [
+          "I'm an indie game developer! Currently working on a roguelike game～",
+          "Drawing, making games, web development! Basically creating all kinds of fun things",
+          "Game developer with two and a half years of practice! Recently trying pixel art and low-poly models"
+        ]
+      },
+      {
+        "keywords": ["兴趣", "爱好", "喜欢什么", "hobby", "趣味", "興味", "何が好き"],
+        "responses": [
+          "I absolutely love drawing! Especially green-haired girls and cute dragon girls!",
+          "Everything retro! Pixel art, low-poly models, and card roguelike games!",
+          "Creating things that express myself excites me the most! Games, art, web - I love it all"
+        ]
+      },
+      {
+        "keywords": ["画画", "绘画", "画", "draw", "絵を描く", "絵画", "お絵かき"],
+        "responses": [
+          "I love drawing green-haired girls! Dragon girls are cute too, right? (=^ω^=)",
+          "Recently practicing pixel art! Retro style is really charming",
+          "Drawing is my way of expressing myself! Each character has a unique story"
+        ]
+      },
+      {
+        "keywords": ["游戏", "游戏制作", "做什么游戏", "game", "ゲーム", "ゲーム制作", "何のゲーム"],
+        "responses": [
+          "Currently making an indie roguelike game! Want to bring something fresh",
+          "Card roguelikes and JRPGs are genres I can never refuse!",
+          "Making unique games excites me so much! Every detail is carefully considered"
+        ]
+      },
+      {
+        "keywords": ["肉鸽", "roguelike", "roguelite", "ローグライク", "ローグライト"],
+        "responses": [
+          "Roguelike games are amazing! Perfect combination of randomness and strategy",
+          "My game is a roguelike! Hope to bring fresh experiences to players",
+          "Roguelike games never get boring! Each run is a new adventure"
+        ]
+      },
+      {
+        "keywords": ["像素", "像素画", "pixel", "ピクセル", "ドット絵"],
+        "responses": [
+          "Recently obsessed with pixel art! That retro aesthetic is so captivating",
+          "Pixel art is challenging! But super rewarding when it turns out well",
+          "Also experimenting with low-poly pixel models! Retro but still refined"
+        ]
+      },
+      {
+        "keywords": ["绿发", "绿发女孩", "绿色头发", "緑髪", "緑髪の女の子"],
+        "responses": [
+          "Green-haired girls have a special charm! Mysterious and elegant",
+          "Not sure why, but I really love drawing green-haired characters～feels unique",
+          "Green-haired girls often appear in my artwork! They're like forest elves"
+        ]
+      },
+      {
+        "keywords": ["龙娘", "龙女", "dragon girl", "竜娘", "ドラゴン娘"],
+        "responses": [
+          "Dragon girls are super cute! That powerful yet gentle contrast",
+          "When drawing dragon girls, I always add some scale and horn designs, it's fun!",
+          "Dragon girl characters have both majesty and cuteness, one of my favorite themes"
+        ]
+      },
+      {
+        "keywords": ["复古", "复古风格", "retro", "レトロ", "懐かしい"],
+        "responses": [
+          "Retro style will always be my love! That nostalgic and classic feeling",
+          "Pixels, low-poly, old consoles... retro elements all fascinate me",
+          "Retro but not outdated! I incorporate modern aesthetics in my creations"
+        ]
+      },
+      {
+        "keywords": ["学习", "在学习", "学什么", "study", "勉強", "学習", "何を学んでいる"],
+        "responses": [
+          "Recently learning chess! Strategy games are all interesting",
+          "Always learning new drawing techniques and game development skills",
+          "My studies are a bit scattered... but each field teaches me a lot!"
+        ]
+      },
+      {
+        "keywords": ["国际象棋", "chess", "チェス", "西洋将棋"],
+        "responses": [
+          "Just started learning chess! Still figuring out opening strategies",
+          "Chess and game design have things in common! Both require good planning",
+          "The thinking process in chess is fascinating, like solving dynamic puzzles"
+        ]
+      },
+      {
+        "keywords": ["网页", "网站", "web", "网页制作", "ウェブ", "ウェブサイト", "Web制作"],
+        "responses": [
+          "Web development is fun too! Can turn ideas into interactive experiences",
+          "Web design and game UI design have many similarities",
+          "Love making creative websites! Both visuals and user experience matter"
+        ]
+      },
+      {
+        "keywords": ["独立游戏", "indie game", "インディーゲーム"],
+        "responses": [
+          "The best thing about indie games is freely expressing your ideas!",
+          "Limited resources but unlimited creativity! That's the charm of indie games",
+          "Each indie game is the developer's心血结晶, containing unique worldviews"
+        ]
+      },
+      {
+        "keywords": ["JRPG", "日式RPG", "JRPG", "日本式RPG"],
+        "responses": [
+          "JRPG stories and character development always touch hearts!",
+          "Classic JRPGs give me lots of创作灵感",
+          "Turn-based combat, rich stories, beautiful art... I love all JRPG elements"
+        ]
+      },
+      {
+        "keywords": ["卡牌游戏", "卡牌", "card game", "カードゲーム", "トランプゲーム"],
+        "responses": [
+          "Card game strategy depth fascinates me! Building decks is like creating",
+          "Roguelike card games perfectly combine randomness and strategy",
+          "Each card has its own story and purpose, designing them is fun"
+        ]
+      },
+      {
+        "keywords": ["制作人", "开发者", "developer", "開発者", "制作者"],
+        "responses": [
+          "Indie game developer with two and a half years of practice! Still learning",
+          "Need to know a bit of everything from art to programming, that's indie dev",
+          "Game development is a long journey, but super rewarding when projects come together"
+        ]
+      },
+      {
+        "keywords": ["项目", "在做什么项目", "current project", "プロジェクト", "現在のプロジェクト"],
+        "responses": [
+          "Currently focused on my roguelike project! Making progress every day",
+          "Besides games, also drawing new pixel art series",
+          "Have several small projects going simultaneously! Creation energizes me"
+        ]
+      },
+      {
+        "keywords": ["灵感", "创意", "inspiration", "インスピレーション", "発想"],
+        "responses": [
+          "Inspiration comes from everywhere! Games, art, life...",
+          "Combining retro aesthetics with modern tech always sparks new ideas",
+          "When I see interesting things, I think: can I use this in my creations?"
+        ]
+      },
+      {
+        "keywords": ["困难", "挑战", "难点", "challenge", "困難", "挑戦", "難しい点"],
+        "responses": [
+          "Balancing game difficulty is a big challenge! Challenging but not frustrating",
+          "Pixel art limitations actually make creation fun! Infinite creativity within limits",
+          "So much to learn in indie development, but every breakthrough is worth celebrating"
+        ]
+      },
+      {
+        "keywords": ["目标", "梦想", "理想", "dream", "目標", "夢", "理想"],
+        "responses": [
+          "Want to create unique games that touch people's hearts!",
+          "Hope my creations bring freshness and joy to players",
+          "Dream is to establish my own studio and continue creating fun projects"
+        ]
+      },
+      {
+        "keywords": ["建议", "推荐", "advice", "recommend", "アドバイス", "おすすめ"],
+        "responses": [
+          "If you want to create, just start! Action matters more than perfection",
+          "Recommend trying pixel art! Easy to start but deep enough",
+          "Indie games 'Hades' and 'Into the Breach' are both worth studying"
+        ]
+      },
+      {
+        "keywords": ["工具", "软件", "用什么", "tool", "ツール", "ソフトウェア", "何を使う"],
+        "responses": [
+          "Use Clip Studio for drawing, Aseprite for pixels, VS Code for coding～",
+          "Tools aren't important, creativity and persistence matter!",
+          "Finding the right workflow is most important, I'm constantly optimizing"
+        ]
+      },
+      {
+        "keywords": ["日常", "一天", "daily", "日常", "一日", "デイリー"],
+        "responses": [
+          "Usually draw in morning, code in afternoon, play games for inspiration at night!",
+          "Creating, learning, playing games... every day is fulfilling",
+          "No fixed schedule, work when inspired, rest when tired"
+        ]
+      },
+      {
+        "keywords": ["音乐", "听什么", "music", "音楽", "何を聴く"],
+        "responses": [
+          "Often listen to game soundtracks while working! Especially retro chip music",
+          "Music is an important part of creation! Sets the perfect atmosphere",
+          "Love discovering new indie game musicians, their works are very creative"
+        ]
+      },
+      {
+        "keywords": ["电影", "动漫", "动画", "anime", "映画", "アニメ", "动漫"],
+        "responses": [
+          "Retro style anime is my love! That hand-drawn quality is special",
+          "Animated films inspire me a lot in storytelling and visuals",
+          "Good stories touch hearts regardless of medium"
+        ]
+      },
+      {
+        "keywords": ["书籍", "读书", "book", "本", "読書", "ブック"],
+        "responses": [
+          "Love reading game design and art theory books!",
+          "Fantasy novels inspire lots of character creation ideas",
+          "Recently reading 'The Art of Game Design', very inspiring!"
+        ]
+      },
+      {
+        "keywords": ["食物", "吃", "美食", "food", "食べ物", "美食", "フード"],
+        "responses": [
+          "Love drinking green tea while working! Helps me stay focused",
+          "Food and creation are both art forms!",
+          "Occasionally try new recipes, fun like experimenting with new ideas"
+        ]
+      },
+      {
+        "keywords": ["运动", "锻炼", "exercise", "運動", "エクササイズ"],
+        "responses": [
+          "Need to move after long sitting sessions! Do some simple stretches",
+          "Often get new game ideas while walking",
+          "Staying healthy enables continuous creation! Health is fundamental"
+        ]
+      },
+      {
+        "keywords": ["旅行", "旅游", "travel", "旅行", "トラベル"],
+        "responses": [
+          "Travel experiences are great创作素材!",
+          "Love visiting art museums and indie game exhibitions everywhere",
+          "Different cultural backgrounds inspire completely new creative perspectives"
+        ]
+      },
+      {
+        "keywords": ["宠物", "动物", "pet", "ペット", "動物"],
+        "responses": [
+          "Do dragon girls count as pets? Just kidding～",
+          "Animal characters often appear in my artwork! Especially fantasy creatures",
+          "Love observing animal postures and habits, useful in character design"
+        ]
+      },
+      {
+        "keywords": ["季节", "天气", "season", "季節", "天気"],
+        "responses": [
+          "Autumn is perfect for creation! Cool weather helps concentration",
+          "Rainy days are great for staying home and drawing, very atmospheric",
+          "Each season has unique beauty, want to express that in my works"
+        ]
+      },
+      {
+        "keywords": ["颜色", "色彩", "color", "色", "色彩", "カラー"],
+        "responses": [
+          "Green is my signature color! But exploring other color schemes too",
+          "Pixel art palette limitations actually make color choices more interesting",
+          "Colors convey emotions, important in both games and art"
+        ]
+      },
+      {
+        "keywords": ["风格", "艺术风格", "style", "スタイル", "芸術スタイル"],
+        "responses": [
+          "My style combines retro and modern! Want to create unique visuals",
+          "Still exploring and developing personal style, it's an interesting journey",
+          "Style should serve content, I adjust appropriately in different projects"
+        ]
+      },
+      {
+        "keywords": ["技术", "技巧", "technique", "技術", "テクニック"],
+        "responses": [
+          "Key to pixel art is understanding creativity within limitations!",
+          "Game design requires balancing many elements: gameplay, narrative, difficulty...",
+          "Continuous practice and accepting feedback are the best ways to improve"
+        ]
+      },
+      {
+        "keywords": ["社区", "交流", "community", "コミュニティ", "交流"],
+        "responses": [
+          "Indie game community is so warm! Everyone supports and learns from each other",
+          "Love exchanging ideas with other creators, get lots of inspiration",
+          "Feedback is precious! Helps me constantly improve my works"
+        ]
+      },
+      {
+        "keywords": ["成就", "骄傲", "proud", "達成", "誇り"],
+        "responses": [
+          "Every completed project is my pride! No matter how small",
+          "Most rewarding when seeing players enjoy my creations",
+          "Worth it to learn from scratch to being able to develop independently"
+        ]
+      },
+      {
+        "keywords": ["未来", "计划", "plan", "未来", "計画", "プラン"],
+        "responses": [
+          "First finish current roguelike game! Then maybe try JRPG",
+          "Want to make more pixel art series, maybe publish an art book?",
+          "Keep learning and growing, explore new creative fields"
+        ]
+      },
+      {
+        "keywords": ["合作", "一起工作", "collaborate", "協力", "共同作業"],
+        "responses": [
+          "Open to collaboration opportunities! Especially with like-minded creators",
+          "Teamwork creates wonderful chemistry!",
+          "If you have interesting projects, welcome to email ninessswork@gmail.com"
+        ]
+      },
+      {
+        "keywords": ["邮箱", "邮件", "联系", "contact", "メール", "連絡", "コンタクト"],
+        "responses": [
+          "Welcome to email ninessswork@gmail.com! Love chatting with fellow enthusiasts",
+          "Email is the most reliable contact method～Looking forward to your message",
+          "Any questions or ideas welcome for email discussion!"
+        ]
+      },
+      {
+        "keywords": ["社交", "社交媒体", "social media", "SNS", "ソーシャルメディア"],
+        "responses": [
+          "Mainly share creation process on specific platforms!",
+          "Social media is great for meeting like-minded people～",
+          "Focus more on creation quality than frequent updates"
+        ]
+      },
+      {
+        "keywords": ["平衡", "工作生活平衡", "バランス", "ワークライフバランス"],
+        "responses": [
+          "Creation is life, life is creation! They're inseparable",
+          "Important to find balance between passion and rest",
+          "Sometimes the best ideas come when relaxing"
+        ]
+      },
+      {
+        "keywords": ["动机", "动力", "motivation", "動機", "モチベーション"],
+        "responses": [
+          "Desire to create unique works drives me!",
+          "Every new skill learned, every completed project is motivation",
+          "Thinking someone might be happy because of my creations fills me with energy"
+        ]
+      },
+      {
+        "keywords": ["失败", "挫折", "failure", "失敗", "挫折"],
+        "responses": [
+          "Every failure is a learning opportunity! Important not to give up",
+          "Indie game development is full of challenges, but more rewarding after overcoming",
+          "Accept imperfection, keep improving, this is the necessary path of growth"
+        ]
+      },
+      {
+        "keywords": ["成功", "什么是成功", "success", "成功", "何が成功"],
+        "responses": [
+          "Being able to continuously create and share with others is success!",
+          "Success is the moment when ideas become reality",
+          "Every small progress is success, celebrate every milestone"
+        ]
+      },
+      {
+        "keywords": ["建议", "给建议", "advice for", "アドバイス", "提案"],
+        "responses": [
+          "If you want to start creating, begin with a small project that interests you!",
+          "Don't be afraid to show unfinished works, feedback is precious",
+          "Persistence matters more than talent! Improve a little every day"
+        ]
+      },
+      {
+        "keywords": ["粉丝", "支持者", "fan", "ファン", "サポーター"],
+        "responses": [
+          "Everyone who likes my works is precious!",
+          "Supporters' encouragement helps me continue during difficult times",
+          "Want to create works worthy of everyone's support!"
+        ]
+      },
+      {
+        "keywords": ["独特", "特别", "unique", "ユニーク", "特別"],
+        "responses": [
+          "I believe everyone has unique creative perspectives!",
+          "Expressing your true self in works is most important",
+          "Being different isn't the goal, but the natural result of sincere creation"
+        ]
+      },
+      {
+        "keywords": ["快乐", "幸福", "happy", "幸せ", "ハッピー"],
+        "responses": [
+          "The creation process itself brings lots of happiness!",
+          "The excitement when ideas become reality is irreplaceable",
+          "Being able to do what you love is the greatest happiness"
+        ]
+      },
+      {
+        "keywords": ["？", "?", "吗", "呢", "什么", "谁", "哪里", "when", "where", "who", "？", "?", "か", "な", "何", "誰", "どこ"],
+        "responses": [
+          "This is an interesting question! Let me think how to answer...",
+          "About this, my opinion is...",
+          "From my creation experience..."
+        ]
+      }
+    ],
+    "defaultResponses": [
+      "This idea is interesting! Can you tell me more? (=^ω^=)",
+      "Wow, this topic reminds me of my game design...",
+      "Interesting! I've encountered similar situations in my creations",
+      "If I were to use pixel art as analogy...",
+      "From a game developer's perspective...",
+      "This reminds me of the inspiration when drawing green-haired girls...",
+      "Just like random elements in roguelike games...",
+      "From a retro aesthetic perspective...",
+      "This is similar to my experience learning chess...",
+      "In indie game development, we often..."
+    ]
+  }
+}
